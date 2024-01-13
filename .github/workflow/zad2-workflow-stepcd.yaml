@@ -26,6 +26,6 @@ jobs:
           platforms: linux/amd64
           file: ./Dockerfile
           push: true
-          tags: djkrnl/zad2gitops:v1
+          tags: scoutertf2/zad2gitops:v1
           cache-from: type=registry,ref=scoutertf2/zad2gitops:v1
           cache-to: type=inline

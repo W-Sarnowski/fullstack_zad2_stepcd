@@ -17,4 +17,4 @@ spec:
               image: scoutertf2/zad2gitops:v1
               command: [sh, -e, -c]
               args:
-                - git clone https://github.com/w-sarnowski/fullstack-zad2-config.git /tmp/fullstack-zad2-config && find /tmp/fullstack-zad2-config -name '*.yml' -exec kubectl apply -f {} \;
+                - git clone https://github.com/w-sarnowski/fullstack-zad2-config.git /tmp/fullstack-zad2-config && find /tmp/fullstack-zad2-config -name '*.yaml' -exec kubectl apply -f {} \;

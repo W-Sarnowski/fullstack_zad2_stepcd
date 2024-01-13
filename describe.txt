@@ -1,0 +1,54 @@
+djkrnl@djkrnl-VirtualBox:~/Pobrane/zad2$ kubectl describe cronjob stepcd
+Name:                          stepcd
+Namespace:                     default
+Labels:                        <none>
+Annotations:                   <none>
+Schedule:                      */2 * * * *
+Concurrency Policy:            Forbid
+Suspend:                       False
+Successful Job History Limit:  3
+Failed Job History Limit:      1
+Starting Deadline Seconds:     <unset>
+Selector:                      <unset>
+Parallelism:                   <unset>
+Completions:                   <unset>
+Pod Template:
+  Labels:           <none>
+  Service Account:  gitops
+  Containers:
+   zad2gitops:
+    Image:      scoutertf2/zad2gitops:v1
+    Port:       <none>
+    Host Port:  <none>
+    Command:
+      sh
+      -e
+      -c
+    Args:
+      git clone https://github.com/w-sarnowski/fullstack-zad2-config /tmp/fullstack-zad2-config && find /tmp/fullstack-zad2-config -name '*.yaml' -exec kubectl apply -f {} \
+    Environment:     <none>
+    Mounts:          <none>
+  Volumes:           <none>
+Last Schedule Time:  Sat, 13 Jan 2024 21:04:00 +0100
+Active Jobs:         <none>
+Events:
+  Type    Reason            Age                 From                Message
+  ----    ------            ----                ----                -------
+  Normal  JobAlreadyActive  59m (x13 over 81m)  cronjob-controller  Not starting job because prior execution is running and concurrency policy is Forbid
+  Normal  SawCompletedJob   59m (x2 over 59m)   cronjob-controller  Saw completed job: stepcd-28419520, status: Failed
+  Normal  SuccessfulCreate  59m                 cronjob-controller  Created job stepcd-28419544
+  Normal  SawCompletedJob   59m (x2 over 59m)   cronjob-controller  Saw completed job: stepcd-28419544, status: Failed
+  Normal  SuccessfulDelete  59m                 cronjob-controller  Deleted job stepcd-28419520
+  Normal  SuccessfulCreate  58m                 cronjob-controller  Created job stepcd-28419546
+  Normal  SawCompletedJob   58m                 cronjob-controller  Saw completed job: stepcd-28419546, status: Failed
+  Normal  SuccessfulDelete  58m                 cronjob-controller  Deleted job stepcd-28419544
+  Normal  SuccessfulCreate  56m                 cronjob-controller  Created job stepcd-28419548
+  Normal  SawCompletedJob   56m (x2 over 56m)   cronjob-controller  Saw completed job: stepcd-28419548, status: Failed
+  Normal  SuccessfulDelete  56m                 cronjob-controller  Deleted job stepcd-28419546
+  Normal  SuccessfulCreate  54m                 cronjob-controller  Created job stepcd-28419550
+  Normal  SawCompletedJob   54m                 cronjob-controller  Saw completed job: stepcd-28419550, status: Failed
+  Normal  SuccessfulDelete  54m                 cronjob-controller  Deleted job stepcd-28419548
+  Normal  SuccessfulCreate  52m                 cronjob-controller  Created job stepcd-28419552
+  Normal  SuccessfulCreate  50m                 cronjob-controller  Created job stepcd-28419554
+  Normal  SuccessfulCreate  44m                 cronjob-controller  Created job stepcd-28419560
+  Normal  SuccessfulCreate  50s (x22 over 42m)  cronjob-controller  (combined from similar events): Created job stepcd-28419604
